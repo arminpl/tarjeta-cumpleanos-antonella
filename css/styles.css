@@ -1,0 +1,387 @@
+/* ===== FUENTES PERSONALIZADAS ===== */
+@font-face {
+    font-family: 'Comic Relief';
+    src: url('../assets/fonts/ComicRelief-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Comic Relief';
+    src: url('../assets/fonts/ComicRelief-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* ===== RESET Y ESTILOS GLOBALES ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Comic Relief', 'Comic Sans MS', cursive, sans-serif;
+    background: #1a1a2e;
+    touch-action: manipulation;
+}
+
+#loader {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #1a1a2e;
+    z-index: 9999;
+    color: #fff;
+    font-size: 1.5rem;
+    transition: opacity 0.8s;
+}
+
+#loader.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+#app {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+    background: #2d1b3d;
+}
+
+#scene-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.scene {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+    pointer-events: none;
+    padding: 20px;
+}
+
+.scene.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.scene-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 0;
+}
+
+.scene-content {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.texto-escena {
+    color: #fff;
+    text-shadow: 2px 2px 0 #000, 0 0 20px rgba(0,0,0,0.8);
+    text-align: center;
+    font-size: clamp(1.2rem, 5vw, 2.5rem);
+    font-weight: 700;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+.texto-escena.delay-1 { animation-delay: 0.3s; }
+.texto-escena.delay-2 { animation-delay: 0.8s; }
+.texto-escena.delay-3 { animation-delay: 1.3s; }
+
+.btn-principal {
+    padding: 16px 40px;
+    font-size: clamp(1rem, 4vw, 1.8rem);
+    font-family: inherit;
+    font-weight: 700;
+    color: #fff;
+    background: linear-gradient(135deg, #f7971e, #ffd200);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(247, 151, 30, 0.4);
+    transition: transform 0.2s, box-shadow 0.2s;
+    touch-action: manipulation;
+    position: relative;
+    z-index: 2;
+}
+
+.btn-principal:active {
+    transform: scale(0.95);
+}
+
+#audio-toggle {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    z-index: 999;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid rgba(255,255,255,0.3);
+    background: rgba(0,0,0,0.5);
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    touch-action: manipulation;
+}
+
+.huevo-container {
+    position: relative;
+    cursor: pointer;
+    touch-action: manipulation;
+}
+
+.huevo-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.personaje {
+    position: absolute;
+    width: min(150px, 30vw);
+    height: min(200px, 40vw);
+    object-fit: contain;
+    transition: transform 0.5s ease;
+}
+
+.personaje-trici {
+    left: 5%;
+    bottom: 10%;
+}
+
+.personaje-estegui {
+    right: 5%;
+    bottom: 10%;
+}
+
+.torta-container {
+    position: relative;
+}
+
+.torta-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.fiesta-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(255,200,50,0.15), rgba(255,100,150,0.08));
+    animation: fiestaPulse 3s ease-in-out infinite;
+    pointer-events: none;
+}
+
+.confeti {
+    position: absolute;
+    z-index: 1;
+    pointer-events: none;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fiestaPulse {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+}
+
+@keyframes shake {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-8deg); }
+    75% { transform: rotate(8deg); }
+}
+
+@keyframes huevoBrillo {
+    0%, 100% { filter: drop-shadow(0 0 10px rgba(255,215,0,0.2)); }
+    50% { filter: drop-shadow(0 0 30px rgba(255,215,0,0.6)); }
+}
+
+@keyframes caerConfeti {
+    0% {
+        transform: translateY(-10px) rotate(0deg) scale(0);
+        opacity: 1;
+    }
+    20% {
+        transform: translateY(20vh) rotate(120deg) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(110vh) rotate(720deg) scale(0.5);
+        opacity: 0;
+    }
+}
+
+.typing-text {
+    visibility: hidden;
+    min-height: 1.2em;
+    display: inline-block;
+}
+
+.typing-text.typing-done {
+    border-right: none;
+}
+
+.typing-text.typing-active {
+    border-right: 2px solid rgba(255, 255, 255, 0.7);
+    animation: cursorBlink 0.7s step-end infinite;
+}
+
+@keyframes cursorBlink {
+    0%, 100% { border-color: rgba(255, 255, 255, 0.7); }
+    50% { border-color: transparent; }
+}
+
+.btn-confirmar:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 30px rgba(0, 206, 201, 0.4);
+}
+
+.btn-confirmar:active {
+    transform: scale(0.95);
+}
+
+/* ESTILOS PARA PERSONAJES AL MISMO NIVEL EN TODAS LAS ESCENAS */
+#scene-2 .personaje-trici,
+#scene-2 .personaje-estegui,
+#scene-3 .personaje-trici,
+#scene-3 .personaje-estegui,
+#scene-4 .personaje-trici,
+#scene-4 .personaje-estegui,
+#scene-5 .personaje-trici,
+#scene-5 .personaje-estegui {
+    position: relative !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    top: auto !important;
+    display: block;
+}
+
+#scene-2 .scene-content,
+#scene-3 .scene-content,
+#scene-4 .scene-content,
+#scene-5 .scene-content {
+    gap: 8px !important;
+    padding: 10px !important;
+}
+
+/* ===== TEXTO NORMAL (Regular) ===== */
+p, span, div:not(.btn-principal) {
+    font-weight: 400;
+}
+
+/* ===== TEXTO EN NEGRITA (Bold) ===== */
+.texto-escena,
+.btn-principal,
+h1, h2, h3, h4 {
+    font-weight: 700;
+}
+
+@media (min-width: 768px) {
+    .personaje {
+        width: min(200px, 25vw);
+        height: min(250px, 30vw);
+    }
+}
+
+@media (max-width: 480px) {
+    #scene-2 .personaje-trici,
+    #scene-2 .personaje-estegui,
+    #scene-3 .personaje-trici,
+    #scene-3 .personaje-estegui,
+    #scene-4 .personaje-trici,
+    #scene-4 .personaje-estegui,
+    #scene-5 .personaje-trici,
+    #scene-5 .personaje-estegui {
+        width: min(70px, 18vw) !important;
+        height: min(90px, 23vw) !important;
+    }
+    #scene-2 .torta-container,
+    #scene-3 .torta-container,
+    #scene-5 .torta-container {
+        width: min(100px, 25vw) !important;
+        height: min(100px, 25vw) !important;
+    }
+    #scene-4 .torta-container {
+        width: min(80px, 20vw) !important;
+        height: min(80px, 20vw) !important;
+    }
+}
+
+@media (orientation: landscape) and (max-height: 500px) {
+    .scene-content {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .texto-escena {
+        font-size: clamp(0.8rem, 3vw, 1.2rem);
+    }
+    .personaje {
+        width: min(100px, 20vh);
+        height: min(130px, 25vh);
+    }
+    #scene-2 .personaje-trici,
+    #scene-2 .personaje-estegui,
+    #scene-3 .personaje-trici,
+    #scene-3 .personaje-estegui,
+    #scene-4 .personaje-trici,
+    #scene-4 .personaje-estegui,
+    #scene-5 .personaje-trici,
+    #scene-5 .personaje-estegui {
+        width: min(60px, 15vh) !important;
+        height: min(80px, 20vh) !important;
+    }
+    #scene-2 .torta-container,
+    #scene-3 .torta-container,
+    #scene-5 .torta-container {
+        width: min(80px, 20vh) !important;
+        height: min(80px, 20vh) !important;
+    }
+    #scene-4 .torta-container {
+        width: min(60px, 15vh) !important;
+        height: min(60px, 15vh) !important;
+    }
+}

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>🎂 Cumpleaños de Antonella</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div id="loader">🦕 Cargando aventura...</div>
+    
+    <div id="app">
+        <button id="audio-toggle">🔊</button>
+        
+        <div id="scene-container">
+            <!-- ESCENA 0: AVENTURA -->
+            <div class="scene active" data-scene="0" id="scene-0">
+                <div class="scene-bg" style="background-image: url('assets/images/fondos/selva con volcan.webp');"></div>
+                <div class="scene-content">
+                    <div class="huevo-container" style="width:200px;height:250px;animation:huevoBrillo 2s ease-in-out infinite;">
+                        <img src="assets/images/objetos/solo huevo.webp" alt="Huevo" style="width:100%;height:100%;object-fit:contain;">
+                    </div>
+                    <p class="texto-escena typing-text">HACE MUCHO, MUCHO TIEMPO...</p>
+                    <p class="texto-escena typing-text delay-1">EN UN LUGAR LLENO DE DINOSAURIOS...</p>
+                    <p class="texto-escena typing-text delay-2">🦕 UNA AVENTURA ESTABA EMPEZANDO...</p>
+                    <button class="btn-principal" id="btn-comenzar">👆 HAZ CLIC ACÁ</button>
+                </div>
+            </div>
+
+            <!-- ESCENA 1: HUEVO -->
+            <div class="scene" data-scene="1" id="scene-1">
+                <div class="scene-bg" style="background-image: url('assets/images/fondos/selva con volcan.webp');"></div>
+                <div class="scene-content">
+                    <p class="texto-escena typing-text">HMM... 🤔</p>
+                    <p class="texto-escena typing-text delay-1">¿QUÉ HABRÁ DENTRO?</p>
+                    <p class="texto-escena typing-text delay-2" style="font-size:clamp(0.8rem,3vw,1.2rem);">👆 TOCA EL HUEVO</p>
+                    <div class="huevo-container" id="huevo-interactivo" style="width:min(300px,60vw);height:min(400px,80vw);cursor:pointer;">
+                        <img id="img-huevo" src="assets/images/objetos/solo huevo.webp" alt="Huevo" style="width:100%;height:100%;object-fit:contain;transition:transform 0.3s;">
+                    </div>
+                </div>
+            </div>
+
+            <!-- ESCENA 2: SORPRESA -->
+            <div class="scene" data-scene="2" id="scene-2">
+                <div class="scene-bg" style="background-image: url('assets/images/fondos/selva con volcan.webp');"></div>
+                <div class="scene-content">
+                    <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%;gap:10px;">
+                        
+                        <p class="texto-escena typing-text" style="font-size:clamp(1.5rem,6vw,3rem);">🎉 ¡SORPRESA! 🎉</p>
+                        <p class="texto-escena typing-text delay-1">¡SOMOS TRICI Y ESTEGUI!</p>
+                        <p class="texto-escena typing-text delay-2">TENEMOS UNA INVITACIÓN MUY ESPECIAL PARA TI...</p>
+                        
+                        <div style="display:flex;flex-direction:row;align-items:center;justify-content:center;width:100%;max-width:500px;gap:10px;flex-wrap:wrap;margin-top:10px;">
+                            <img class="personaje personaje-trici" src="assets/images/personajes/trici/trici hablando.webp" alt="Trici" style="position:relative;left:auto;bottom:auto;width:min(100px,20vw);height:min(130px,25vw);object-fit:contain;flex-shrink:0;">
+                            
+                            <div class="torta-container" style="width:min(150px,30vw);height:min(150px,30vw);position:relative;flex-shrink:0;">
+                                <img src="assets/images/objetos/torta.webp" alt="Torta" style="width:100%;height:100%;object-fit:contain;">
+                                <img src="assets/images/objetos/velas.webp" alt="Velas" style="position:absolute;top:-10%;left:50%;transform:translateX(-50%);width:40%;height:auto;">
+                            </div>
+                            
+                            <img class="personaje personaje-estegui" src="assets/images/personajes/estegui/estegui hablando.webp" alt="Estegui" style="position:relative;right:auto;bottom:auto;width:min(100px,20vw);height:min(130px,25vw);object-fit:contain;flex-shrink:0;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ESCENA 3: ANTONELLA -->
+            <div class="scene" data-scene="3" id="scene-3">
+                <div class="scene-bg" style="background-image: url('assets/images/fondos/selva con volcan.webp');"></div>
+                <div class="scene-content">
+                    <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%;gap:10px;">
+                        
+                        <p class="texto-escena typing-text" style="font-size:clamp(1.5rem,6vw,3rem);">🎉 ¡ESTÁS INVITAD@! 🎉</p>
+                        <p class="texto-escena typing-text delay-1" style="font-size:clamp(1.2rem,4vw,2rem);">🎂 AL CUMPLEAÑOS DE</p>
+                        <p class="texto-escena typing-text delay-2" style="font-size:clamp(2rem,7vw,3.5rem);color:#ff6b6b;">❤️ ANTONELLA ❤️</p>
+                        <p class="texto-escena typing-text delay-3" style="font-size:clamp(0.8rem,3vw,1.2rem);">¡NUESTRA PEQUEÑA EXPLORADORA CUMPLE 4 AÑOS!</p>
+                        
+                        <div style="display:flex;flex-direction:row;align-items:center;justify-content:center;width:100%;max-width:500px;gap:10px;flex-wrap:wrap;margin-top:10px;">
+                            <img class="personaje personaje-trici" src="assets/images/personajes/trici/trici festejando.webp" alt="Trici" style="position:relative;left:auto;bottom:auto;width:min(100px,20vw);height:min(130px,25vw);object-fit:contain;flex-shrink:0;">
+                            
+                            <div class="torta-container" style="width:min(150px,30vw);height:min(150px,30vw);position:relative;flex-shrink:0;">
+                                <img src="assets/images/objetos/torta.webp" alt="Torta" style="width:100%;height:100%;object-fit:contain;">
+                            </div>
+                            
+                            <img class="personaje personaje-estegui" src="assets/images/personajes/estegui/estegui festejando.webp" alt="Estegui" style="position:relative;right:auto;bottom:auto;width:min(100px,20vw);height:min(130px,25vw);object-fit:contain;flex-shrink:0;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ESCENA 4: DATOS -->
+            <div class="scene" data-scene="4" id="scene-4">
+                <div class="scene-bg" style="background-image: url('assets/images/fondos/selva con volcan.webp');"></div>
+                <div class="scene-content">
+                    <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%;gap:10px;">
+                        
+                        <div style="background:rgba(0,0,0,0.6);backdrop-filter:blur(10px);padding:30px;border-radius:20px;border:2px solid rgba(255,215,0,0.3);max-width:400px;width:90%;">
+                            <p style="color:#ffd93d;font-size:clamp(1.2rem,4vw,1.8rem);text-align:center;margin-bottom:15px;">🎂 ANTONELLA CUMPLE 4 AÑOS</p>
+                            <div style="display:grid;gap:12px;">
+                                <p class="typing-text" style="color:#fff;font-size:clamp(1rem,3vw,1.3rem);">📅 15 de Noviembre</p>
+                                <p class="typing-text delay-1" style="color:#fff;font-size:clamp(1rem,3vw,1.3rem);">🕐 09:00</p>
+                                <p class="typing-text delay-2" style="color:#fff;font-size:clamp(1rem,3vw,1.3rem);">📍 Guardería Shine</p>
+                                <p class="typing-text delay-3" style="color:#fff;font-size:clamp(0.8rem,2.5vw,1rem);">📌 Av. García Lanza N.º 8304 – Zona Achumani</p>
+                            </div>
+                        </div>
+                        
+                        <div style="display:flex;flex-direction:row;align-items:center;justify-content:center;width:100%;max-width:500px;gap:10px;flex-wrap:wrap;margin-top:5px;">
+                            <img class="personaje personaje-trici" src="assets/images/personajes/trici/trici feliz.webp" alt="Trici" style="position:relative;left:auto;bottom:auto;width:min(100px,20vw);height:min(130px,25vw);object-fit:contain;flex-shrink:0;">
+                            
+                            <div class="torta-container" style="width:min(120px,25vw);height:min(120px,25vw);position:relative;flex-shrink:0;">
+                                <img src="assets/images/objetos/torta.webp" alt="Torta" style="width:100%;height:100%;object-fit:contain;">
+                            </div>
+                            
+                            <img class="personaje personaje-estegui" src="assets/images/personajes/estegui/estegui feliz.webp" alt="Estegui" style="position:relative;right:auto;bottom:auto;width:min(100px,20vw);height:min(130px,25vw);object-fit:contain;flex-shrink:0;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ESCENA 5: FINAL -->
+            <div class="scene" data-scene="5" id="scene-5">
+                <div class="scene-bg" style="background-image: url('assets/images/fondos/selva con volcan.webp');"></div>
+                <div class="scene-content">
+                    <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%;gap:10px;">
+                        
+                        <p class="texto-escena typing-text" style="font-size:clamp(1.5rem,5vw,2.5rem);margin-bottom:0;">🦕 ¡TE ESPERAMOS! 🎂</p>
+                        <p class="texto-escena typing-text delay-1" style="font-size:clamp(0.8rem,3vw,1.2rem);">VEN A CELEBRAR LOS 4 AÑOS DE ANTONELLA</p>
+                        <p class="texto-escena typing-text delay-2" style="font-size:clamp(1rem,4vw,1.5rem);color:#ff6b6b;margin-bottom:10px;">❤️ ¡NOS VEMOS EN LA FIESTA! ❤️</p>
+                        
+                        <div style="display:flex;flex-direction:row;align-items:center;justify-content:center;width:100%;max-width:500px;gap:10px;flex-wrap:wrap;">
+                            <img class="personaje personaje-trici" src="assets/images/personajes/trici/trici festejando.webp" alt="Trici" style="position:relative;left:auto;bottom:auto;width:min(100px,20vw);height:min(130px,25vw);object-fit:contain;flex-shrink:0;">
+                            
+                            <div class="torta-container" style="width:min(150px,30vw);height:min(150px,30vw);position:relative;flex-shrink:0;">
+                                <img src="assets/images/objetos/torta.webp" alt="Torta" style="width:100%;height:100%;object-fit:contain;">
+                            </div>
+                            
+                            <img class="personaje personaje-estegui" src="assets/images/personajes/estegui/estegui festejando.webp" alt="Estegui" style="position:relative;right:auto;bottom:auto;width:min(100px,20vw);height:min(130px,25vw);object-fit:contain;flex-shrink:0;">
+                        </div>
+                        
+                        <div style="display:flex;flex-direction:column;gap:12px;width:100%;max-width:350px;margin-top:10px;">
+                            <button class="btn-principal btn-mapa" style="background:linear-gradient(135deg,#4285f4,#34a853);">
+                                📍 VER UBICACIÓN
+                            </button>
+                            <button class="btn-principal btn-confirmar" id="btn-confirmar" style="background:linear-gradient(135deg,#00b894,#00cec9);">
+                                ✅ CONFIRMAR PARTICIPACIÓN
+                            </button>
+                            <button class="btn-principal" id="btn-reiniciar" style="background:linear-gradient(135deg,#f7971e,#ffd200);">
+                                🔄 VOLVER A VIVIR LA AVENTURA
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/audio.js"></script>
+    <script src="js/typing-effect.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/touch.js"></script>
+    <script src="js/scenes.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
